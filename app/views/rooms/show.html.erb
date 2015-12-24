@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+  <br>
+  Items in this Room:
+  <ul>
+  <% @room.items.uniq.each do |item| %>
+    <li>
+      <%= link_to item.work_title, item %>
+      <% if item.images.length > 0 %>
+        <img src="<%= item.images[0].file_link %>">
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+  Artists in this Room:
+  <ul>
+  <% @room.items.uniq.each do |item| %>
+    <li><%= link_to item.artist.name, item.artist %></li>
+  <% end %>
+  </ul>
+</p>
+
+<p>
+  <% if @room.images.length > 0 %>
+    <strong>Room Images:</strong>
+    <% @room.images.each do |image| %>
+      <ul>
+        <li><img src="<%= image.file_link %>"</li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <% if @room.media.length > 0 %>
+    <strong>Room Media:</strong>
+    <% @room.media.each do |medium| %>
+      <ul>
+        <li><img src="<%= medium.file_link %>"</li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

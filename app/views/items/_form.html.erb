@@ -1,0 +1,90 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :artist %><br>
+    <%= f.select :artist_id, options_for_select(@artists.map{ |artist| [artist.name, artist.id]}, :selected => f.object.artist_id ) %>
+  <%= link_to 'Add new Artist', new_artist_path %>
+  </div>
+
+  <div class="field">
+    <%= f.label :room %><br>
+    <%= f.select :room_id, options_for_select(@rooms.map{ |room| [room.name, room.id]}, :selected => f.object.room_id  ) %>
+  </div>
+
+  <%= link_to 'Add new Image', new_image_path %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :page_title %><br>
+    <%= f.text_field :page_title %>
+  </div>
+  <div class="field">
+    <%= f.label :work_title %><br>
+    <%= f.text_field :work_title %>
+  </div>
+  <div class="field">
+    <%= f.label :other_craft %><br>
+    <%= f.text_field :other_craft %>
+  </div>
+  <div class="field">
+    <%= f.label :other_artist %><br>
+    <%= f.text_field :other_artist %>
+  </div>
+  <div class="field">
+    <%= f.label :type_of_item %><br>
+    <%= f.text_field :type_of_item %>
+  </div>
+  <div class="field">
+    <%= f.label :material %><br>
+    <%= f.text_field :material %>
+  </div>
+  <div class="field">
+    <%= f.label :technique %><br>
+    <%= f.text_field :technique %>
+  </div>
+  <div class="field">
+    <%= f.label :created %><br>
+    <%= f.date_select :created %>
+  </div>
+  <div class="field">
+    <%= f.label :signature %><br>
+    <%= f.text_field :signature %>
+  </div>
+  <div class="field">
+    <%= f.label :features %><br>
+    <%= f.text_area :features %>
+  </div>
+  <div class="field">
+    <%= f.label :date_acquired %><br>
+    <%= f.date_select :date_acquired %>
+  </div>
+  <div class="field">
+    <%= f.label :gift_of %><br>
+    <%= f.text_field :gift_of %>
+  </div>
+  <div class="field">
+    <%= f.label :text_documents %><br>
+    <%= f.text_field :text_documents %>
+  </div>
+  <div class="field">
+    <%= f.label :featured %><br>
+    <%= f.check_box :featured %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

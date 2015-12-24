@@ -1,0 +1,123 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <% if @item.page_title.empty? %>
+    <%= @item.work_title %>
+  <% else %>
+    <%= @item.page_title %>
+  <% end %>
+</h1>
+
+<p>
+  <% if @item.images.length > 0 %>
+    <img src="<%= @item.images[0].file_link %>"
+  <% end %>
+</p>
+
+<p><%= link_to 'Add new Image', new_image_path %></p>
+
+<p>
+  <% if @item.images.length > 0 %>
+    <strong>All Images:</strong>
+    <% @item.images.each do |image| %>
+      <ul>
+        <li><img src="<%= image.file_link %>"</li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <% if @item.media.length > 0 %>
+    <strong>item Media:</strong>
+    <% @item.media.each do |medium| %>
+      <ul>
+        <li><img src="<%= medium.file_link %>"</li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= link_to @item.artist.name, @item.artist %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= link_to @item.room.name, @item.room %>
+</p>
+
+<p>
+  <strong>Work title:</strong>
+  <%= @item.work_title %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+
+<p>
+  <strong>Other craft:</strong>
+  <%= @item.other_craft %>
+</p>
+
+<p>
+  <strong>Other artist:</strong>
+  <%= @item.other_artist %>
+</p>
+
+<p>
+  <strong>Type of item:</strong>
+  <%= @item.type_of_item %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @item.material %>
+</p>
+
+<p>
+  <strong>Technique:</strong>
+  <%= @item.technique %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @item.created %>
+</p>
+
+<p>
+  <strong>Signature:</strong>
+  <%= @item.signature %>
+</p>
+
+<p>
+  <strong>Features:</strong>
+  <%= @item.features %>
+</p>
+
+<p>
+  <strong>Date acquired:</strong>
+  <%= @item.date_acquired %>
+</p>
+
+<p>
+  <strong>Gift of:</strong>
+  <%= @item.gift_of %>
+</p>
+
+<p>
+  <strong>Text documents:</strong>
+  <%= @item.text_documents %>
+</p>
+
+<p>
+  <strong>Featured:</strong>
+  <%= @item.featured %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

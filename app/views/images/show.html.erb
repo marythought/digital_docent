@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zoom:</strong>
+  <%= @image.zoom %>
+</p>
+
+<p>
+  <strong>File link:</strong>
+  <%= @image.file_link %>
+</p>
+
+<p>
+  <strong>Imagable ID:</strong>
+  <%= @image.imageable_id %>
+</p>
+
+<p>
+  <strong>Imageable Type:</strong>
+  <%= @image.imageable_type %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

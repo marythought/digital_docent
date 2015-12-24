@@ -1,0 +1,34 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page_title: MyString
+  work_title: MyString
+  other_craft: MyString
+  other_artist: MyString
+  type_of_item: MyString
+  material: MyString
+  technique: MyString
+  created: 2015-12-22
+  signature: MyString
+  features: MyText
+  date_acquired: 2015-12-22
+  gift_of: MyString
+  text_documents: MyString
+  featured: false
+
+two:
+  page_title: MyString
+  work_title: MyString
+  other_craft: MyString
+  other_artist: MyString
+  type_of_item: MyString
+  material: MyString
+  technique: MyString
+  created: 2015-12-22
+  signature: MyString
+  features: MyText
+  date_acquired: 2015-12-22
+  gift_of: MyString
+  text_documents: MyString
+  featured: false

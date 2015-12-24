@@ -1,0 +1,22 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  page_title: MyString
+  country_city: MyString
+  year_of_birth: 1
+  year_of_death: 1
+  details: MyText
+  biography: MyText
+  external_link: MyString
+
+two:
+  name: MyString
+  page_title: MyString
+  country_city: MyString
+  year_of_birth: 1
+  year_of_death: 1
+  details: MyText
+  biography: MyText
+  external_link: MyString

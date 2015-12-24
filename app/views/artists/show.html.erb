@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @artist.page_title %></h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <% if @artist.images.length > 0 %>
+    <strong>Artist Images:</strong>
+    <% @artist.images.each do |image| %>
+      <ul>
+        <li><img src="<%= image.file_link %>"</li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <% if @artist.media.length > 0 %>
+    <strong>Artist Media:</strong>
+    <% @artist.media.each do |medium| %>
+      <ul>
+        <li><img src="<%= medium.file_link %>"</li>
+      </ul>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Works by this Artist:</strong>
+  <% @artist.items.each do |item| %>
+  <ul>
+    <li><%= link_to item.work_title, item %>, room <%= link_to item.room.name, item.room %>
+      <% if item.images.length > 0 %>
+        <img src="<%= item.images[0].file_link %>"></li>
+      <% end %>
+  </ul>
+  <% end %>
+  <%= link_to 'Add new Item', new_item_path %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @artist.country_city %>
+</p>
+
+<p>
+  <%= @artist.year_of_birth %> -
+  <%= @artist.year_of_death %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @artist.details %>
+</p>
+
+<p>
+  <strong>Biography:</strong>
+  <%= @artist.biography %>
+</p>
+
+<p>
+  <strong>External link:</strong>
+  <a href="<%= @artist.external_link %>"><%= @artist.external_link %></a>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
