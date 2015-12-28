@@ -1,16 +1,52 @@
-<h1>BROWSE</h1>
-<ul>
-  <li><%= link_to 'Items', items_path %></li>
-  <li><%= link_to 'Artists', artists_path %></li>
-  <li><%= link_to 'Rooms', rooms_path %></li>
-  <li>Featured</li>
-  <li>Recent Acquisitions</li>
-</ul>
+    <div class="jumbotron well">
+      <h2>
+        <span>Welcome to the Digital Docent</span>
+      </h2>
+      <h2>
+        <small>The Art Gallery was established by the Club with the objective of acquiring and conserving artistically and culturally significant property, with an emphasis on the history of Rainier Club members, Seattle and the greater Puget Sound region.</small>
+      </h2>
+      <p>
+        <a class="btn btn-primary btn-large" href="#">View Featured</a>
+      </p>
+    </div>
+  </div>
+</div>
 
-
-<h1>ADD</h1>
-<ul>
-  <li><%= link_to 'New Item', new_item_path %></li>
-  <li><%= link_to 'New Artist', new_artist_path %></li>
-  <li><%= link_to 'New Room', new_room_path %></li>
-</ul>
+<div class="row" id="browse-previews">
+  <div class="col-md-4">
+    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    <h2>
+      Rooms
+    </h2>
+    <p>
+      Donec id elit non mi porta gravida at eget metus.
+    </p>
+    <p>
+      <%= link_to 'Browse by Rooms >>', rooms_path, class: "btn" %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    <h2>
+      Items
+    </h2>
+    <p>
+      Fusce dapibus, tellus ac cursus commodo, tortor mauris.
+    </p>
+    <p>
+      <%= link_to 'Browse by Items >>', items_path, class: "btn" %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+    <h2>
+      Artists
+    </h2>
+    <p>
+      Donec id elit non mi porta gravida at eget metus.
+    </p>
+    <p>
+      <%= link_to 'Browse by Artists >>', artists_path, class: "btn" %>
+    </p>
+  </div>
+</div>

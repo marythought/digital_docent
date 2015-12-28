@@ -39,7 +39,7 @@
     <strong>Room Media:</strong>
     <% @room.media.each do |medium| %>
       <ul>
-        <li><img src="<%= medium.file_link %>"</li>
+        <li><%= medium.file_link.html_safe %></li>
       </ul>
     <% end %>
   <% end %>
