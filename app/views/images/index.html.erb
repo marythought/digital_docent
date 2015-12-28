@@ -1,29 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>
+        Browse By Image
+      </h1>
+      <p id="notice"><%= notice %></p>
+    </div>
 
-<h1>Listing Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Zoom</th>
-      <th>File link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @images.each do |image| %>
-      <tr>
-        <td><%= image.zoom %></td>
-        <td><%= image.file_link %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img alt="<%= image.file_link%>" src="<%=image.file_link%>">
+        <div class="caption">
+          <h3>
+            <%= image.imageable.name %>
+          </h3>
+          <p>
+            <%= link_to 'Show', image.imageable, class:"btn btn-primary" %>
+          </p>
+          <p>
+            <%= link_to 'Edit', edit_image_path(image) %>
+          </p>
+          <p>
+            <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Image', new_image_path %>
+  </div>
+</div>

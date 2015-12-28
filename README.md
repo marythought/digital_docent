@@ -45,13 +45,10 @@ user flow through artist, room, item pages
 add donor recognition
 
 TODOS:
-make index page
-add images
-add media
-add nav bar
 install virtual machine and test rails integration
 add devise
 add some formatting (bootstrap)
 add seeds
 add tests?
 remove join table, not needed
+add default image if no image.first (for index views)
