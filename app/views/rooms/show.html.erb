@@ -1,49 +1,96 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h1>
+				<%= @room.name %>
+			</h1>
+      <p id="notice"><%= notice %></p>
+      <ul class="nav nav-pills">
+        <li>
+          <a href="#">Works</a>
+        </li>
+        <li>
+          <a href="#">Artists</a>
+        </li>
+        <li>
+          <a href="#">Media</a>
+        </li>
+      </ul>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>
+					<%= @room.name %>
+				</h2>
+				<p>
+					Text about this room
+				</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-6">
+        <% if @room.images.length > 0 %>
+  				<img alt="<%= @room.images.first.file_link %>" src="<%= @room.images.first.file_link %>">
+        <% end %>
+			</div>
+		</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-  <br>
-  Items in this Room:
-  <ul>
-  <% @room.items.uniq.each do |item| %>
-    <li>
-      <%= link_to item.work_title, item %>
-      <% if item.images.length > 0 %>
-        <img src="<%= item.images[0].file_link %>">
+		<div class="row">
+      <div class="col-md-12">
+      <h2>Items in this Room:</h2>
+      </div>
+      <% @room.items.each do |item| %>
+
+  			<div class="col-md-3">
+  				<div class="thumbnail">
+            <% if item.images.length > 0 %>
+  					  <img alt="<%= item.images.first.file_link%>" src="<%= item.images.first.file_link%>" />
+            <% end %>
+  					<div class="caption">
+  						<h3>
+  							<%= link_to item.work_title, item %>
+  						</h3>
+  						<p>
+                Text abt this item.
+  					  </p>
+  						<p>
+  							<%= link_to "Show", item, class: "btn btn-primary" %>
+                <%= link_to item.artist.name, item.artist, class: "btn" %>
+  						</p>
+  					</div>
+  				</div>
+  			</div>
+
       <% end %>
-    </li>
-  <% end %>
-  </ul>
-  Artists in this Room:
-  <ul>
-  <% @room.items.uniq.each do |item| %>
-    <li><%= link_to item.artist.name, item.artist %></li>
-  <% end %>
-  </ul>
-</p>
-
-<p>
-  <% if @room.images.length > 0 %>
-    <strong>Room Images:</strong>
-    <% @room.images.each do |image| %>
+		</div>
+    <div class="row">
+      <div class="col-md-12">
+      <!-- Artists in this Room:
       <ul>
-        <li><img src="<%= image.file_link %>"</li>
-      </ul>
-    <% end %>
-  <% end %>
-</p>
+        <% @room.artists.each do |artist| %>
+          <li><%= link_to artist.name, artist %></li>
+        <% end %>
+      </ul> -->
+      <% if @room.media.length > 0 %>
+        <strong>Media about this room:</strong>
+        <% @room.media.each do |medium| %>
+          <%= medium.file_link.html_safe %>
+        <% end %>
+      <% end %>
+    </div>
+  	</div>
 
-<p>
-  <% if @room.media.length > 0 %>
-    <strong>Room Media:</strong>
-    <% @room.media.each do |medium| %>
-      <ul>
-        <li><%= medium.file_link.html_safe %></li>
-      </ul>
-    <% end %>
-  <% end %>
-</p>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+    <div class="row">
+      <div class="col-md-12">
+    <h1>ADMIN BOX</h1>
+    <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
+    <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>
+    <%= link_to 'Edit Room', edit_room_path(@room), class: "btn btn-primary" %>
+    <%= link_to 'Destroy Room', @item, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Back to Rooms Index', rooms_path, class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
+</div>

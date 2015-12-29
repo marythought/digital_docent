@@ -1,123 +1,158 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
-  <% if @item.page_title.empty? %>
-    <%= @item.work_title %>
-  <% else %>
-    <%= @item.page_title %>
-  <% end %>
-</h1>
-
-<p>
-  <% if @item.images.length > 0 %>
-    <img src="<%= @item.images[0].file_link %>"
-  <% end %>
-</p>
-
-<p><%= link_to 'Add new Image', new_image_path %></p>
-
-<p>
-  <% if @item.images.length > 0 %>
-    <strong>All Images:</strong>
-    <% @item.images.each do |image| %>
-      <ul>
-        <li><img src="<%= image.file_link %>"</li>
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h1>
+				<%= @item.work_title %>
+			</h1>
+      <p id="notice"><%= notice %></p>
+      <ul class="nav nav-pills">
+        <li>
+          <a href="#">Details</a>
+        </li>
+        <li>
+          <a href="#">Artist/Room Info</a>
+        </li>
+        <li>
+          <a href="#">Media</a>
+        </li>
       </ul>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>
+					<%= @item.name %>
+				</h2>
+				<p>
+					<%= @item.features %>
+				</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-6">
+        <% if @item.images.length > 0 %>
+  				<img alt="<%= @item.images.first.file_link %>" src="<%= @item.images.first.file_link %>">
+        <% end %>
+			</div>
+		</div>
+
+    <% if item.images.length > 1 %>
+		<div class="row">
+      <h2>More images:</h2>
+
+  			<div class="col-md-3">
+  				<div class="thumbnail">
+            <% 1.upto(@item.images.length-1) do |i| %>
+  					  <img alt="<%= item.images[i].file_link%>" src="<%= item.images[i].file_link%>" />
+            <% end %>
+  				</div>
+  			</div>
+		</div>
     <% end %>
-  <% end %>
-</p>
 
-<p>
-  <% if @item.media.length > 0 %>
-    <strong>item Media:</strong>
-    <% @item.media.each do |medium| %>
-      <ul>
-        <li><img src="<%= medium.file_link %>"</li>
-      </ul>
+		<h2>
+			About the item:
+		</h2>
+    <p>
+      <strong>item:</strong>
+      <%= link_to @item.artist.name, @item.artist %>
+    </p>
+
+    <p>
+      <strong>Room:</strong>
+      <%= link_to @item.room.name, @item.room %>
+    </p>
+
+    <p>
+      <strong>Work title:</strong>
+      <%= @item.work_title %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @item.name %>
+    </p>
+
+
+    <p>
+      <strong>Other craft:</strong>
+      <%= @item.other_craft %>
+    </p>
+
+    <p>
+      <strong>Other artist:</strong>
+      <%= @item.other_artist %>
+    </p>
+
+    <p>
+      <strong>Type of item:</strong>
+      <%= @item.type_of_item %>
+    </p>
+
+    <p>
+      <strong>Material:</strong>
+      <%= @item.material %>
+    </p>
+
+    <p>
+      <strong>Technique:</strong>
+      <%= @item.technique %>
+    </p>
+
+    <p>
+      <strong>Created:</strong>
+      <%= @item.created %>
+    </p>
+
+    <p>
+      <strong>Signature:</strong>
+      <%= @item.signature %>
+    </p>
+
+    <p>
+      <strong>Features:</strong>
+      <%= @item.features %>
+    </p>
+
+    <p>
+      <strong>Date acquired:</strong>
+      <%= @item.date_acquired %>
+    </p>
+
+    <p>
+      <strong>Gift of:</strong>
+      <%= @item.gift_of %>
+    </p>
+
+    <p>
+      <strong>Text documents:</strong>
+      <%= @item.text_documents %>
+    </p>
+
+    <p>
+      <strong>Featured:</strong>
+      <%= @item.featured %>
+    </p>
+
+    <% if @item.media.length > 0 %>
+      <strong>Media about this item:</strong>
+      <% @item.media.each do |medium| %>
+        <ul>
+          <li><img src="<%= medium.file_link %>"</li>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Artist:</strong>
-  <%= link_to @item.artist.name, @item.artist %>
-</p>
-
-<p>
-  <strong>Room:</strong>
-  <%= link_to @item.room.name, @item.room %>
-</p>
-
-<p>
-  <strong>Work title:</strong>
-  <%= @item.work_title %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+	</div>
+</div>
 
 
-<p>
-  <strong>Other craft:</strong>
-  <%= @item.other_craft %>
-</p>
-
-<p>
-  <strong>Other artist:</strong>
-  <%= @item.other_artist %>
-</p>
-
-<p>
-  <strong>Type of item:</strong>
-  <%= @item.type_of_item %>
-</p>
-
-<p>
-  <strong>Material:</strong>
-  <%= @item.material %>
-</p>
-
-<p>
-  <strong>Technique:</strong>
-  <%= @item.technique %>
-</p>
-
-<p>
-  <strong>Created:</strong>
-  <%= @item.created %>
-</p>
-
-<p>
-  <strong>Signature:</strong>
-  <%= @item.signature %>
-</p>
-
-<p>
-  <strong>Features:</strong>
-  <%= @item.features %>
-</p>
-
-<p>
-  <strong>Date acquired:</strong>
-  <%= @item.date_acquired %>
-</p>
-
-<p>
-  <strong>Gift of:</strong>
-  <%= @item.gift_of %>
-</p>
-
-<p>
-  <strong>Text documents:</strong>
-  <%= @item.text_documents %>
-</p>
-
-<p>
-  <strong>Featured:</strong>
-  <%= @item.featured %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<div class="row">
+  <div class="col-md-4">
+    <h1>ADMIN BOX</h1>
+    <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
+    <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>
+    <%= link_to 'Edit Item', edit_item_path(@item), class: "btn btn-primary" %>
+    <%= link_to 'Destroy Item', @item, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Back to Items Index', items_path, class: "btn btn-primary" %>
+  </div>
+</div>

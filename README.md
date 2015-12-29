@@ -47,8 +47,8 @@ add donor recognition
 TODOS:
 install virtual machine and test rails integration
 add devise
-add some formatting (bootstrap)
 add seeds
+add file uploads (paperclip)
 add tests?
 remove join table, not needed
-add default image if no image.first (for index views)
+add default image if no image.first (for index views) -- done I think
