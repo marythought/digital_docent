@@ -7,33 +7,26 @@
       <p id="notice"><%= notice %></p>
     </div>
 
-  <div class="row">
+  <div class="row" id="artist-grid">
     <% @artists.each do |artist| %>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="thumbnail">
         <% if artist.images.length > 0 %>
           <img alt="<%= artist.images.first.file_link%>" src="<%=artist.images.first.file_link%>">
         <% else %>
-          <img alt="This item needs an image!" src="<%= asset_path('rc-logo.jpg')%>">
+          <img alt="This item needs an image!" src="<%= asset_path('dicksondiaz.png') %>">
         <% end %>
-        <div class="caption">
+
           <h3>
             <%= artist.name %>
           </h3>
           <p>
-            Short text
-          </p>
-          <p>
-            <%= link_to 'Show', artist, class:"btn btn-primary" %>
-          </p>
-          <p>
-            <%= link_to 'Edit', edit_artist_path(artist) %>
-          </p>
-          <p>
+            <%= link_to 'View Artist', artist, class:"btn btn-primary" %>
+            <%= link_to 'Edit', edit_artist_path(artist) %> |
             <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
-        </div>
+
       </div>
     </div>
     <% end %>

@@ -88,21 +88,19 @@
     <% if @artist.media.length > 0 %>
       <strong>Media about this Artist:</strong>
       <% @artist.media.each do |medium| %>
-        <ul>
-          <li><img src="<%= medium.file_link %>"</li>
-        </ul>
+          <%= medium.file_link.html_safe %>
       <% end %>
     <% end %>
 	</div>
 </div>
 
 
-<div class="row">
-  <div class="col-md-6">
+<div class="row show-admin-box">
+  <div class="col-md-12">
     <h1>ADMIN BOX</h1>
     <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
     <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>
-    <%= link_to 'Edit Artist', edit_item_path(@artist), class: "btn btn-primary" %>
+    <%= link_to 'Edit Artist', edit_artist_path(@artist), class: "btn btn-primary" %>
     <%= link_to 'Destroy artist', @artist, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'Back to Artists Index', artists_path, class: "btn btn-primary" %>
   </div>

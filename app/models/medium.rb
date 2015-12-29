@@ -4,7 +4,7 @@ class Medium < ActiveRecord::Base
   validates :file_link, presence: true
 
   def global_multimediable
-    self.multimediable.to_global_id if self.multimediable.present?
+    multimediable.to_global_id if multimediable.present?
   end
 
   def global_multimediable=(multimediable)

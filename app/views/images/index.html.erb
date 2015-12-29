@@ -7,10 +7,10 @@
       <p id="notice"><%= notice %></p>
     </div>
 
-  <div class="row">
+  <div class="row" id="images-grid">
     <% @images.each do |image| %>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="thumbnail">
         <img alt="<%= image.file_link%>" src="<%=image.file_link%>">
         <div class="caption">
@@ -19,11 +19,7 @@
           </h3>
           <p>
             <%= link_to 'Show', image.imageable, class:"btn btn-primary" %>
-          </p>
-          <p>
             <%= link_to 'Edit', edit_image_path(image) %>
-          </p>
-          <p>
             <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
         </div>

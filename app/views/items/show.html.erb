@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-    <% if item.images.length > 1 %>
+    <% if @item.images.length > 1 %>
 		<div class="row">
       <h2>More images:</h2>
 
@@ -146,8 +146,8 @@
 </div>
 
 
-<div class="row">
-  <div class="col-md-4">
+<div class="row show-admin-box">
+  <div class="col-md-12">
     <h1>ADMIN BOX</h1>
     <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
     <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>

@@ -1,14 +1,26 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @medium.type %>
-</p>
-
 <p>
   <strong>File link:</strong>
   <%= @medium.file_link %>
 </p>
 
-<%= link_to 'Edit', edit_medium_path(@medium) %> |
-<%= link_to 'Back', media_path %>
+<p>
+  <strong>Multimediable ID:</strong>
+  <%= @image.multimediable_id %>
+</p>
+
+<p>
+  <strong>Multimediable Type:</strong>
+  <%= @image.multimediable_type %>
+</p>
+
+<div class="row show-admin-box">
+  <div class="col-md-12">
+    <h1>ADMIN BOX</h1>
+    <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
+    <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>
+    <%= link_to 'Edit Media', edit_medium_path(@medium), class: "btn btn-primary" %>
+    <%= link_to 'Destroy Media', @medium, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Back to Media Index', media_path, class: "btn btn-primary" %>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+nav ul li {
+  display: inline;
+}
+
+.btn-primary {
+  background-color: gray;
+  border-color: gray;
+}
+// img {
+//   max-height: 300px;
+//   max-width: 300px;
+// }
+.container-fluid {
+  background-color: #FDF5E6;
+}
+
+.show-admin-box {
+  background-color: brown;
+  color: white;
+  border-style: dashed 1px;
+  border-color: red;
+}
+
+.jumbotron {
+  background-image: url('hero-image.jpg');
+  background-position: center;
+  background-size: cover;
+  background-color: maroon;
+  h2 {
+    color: #F5F5F5;
+    font-weight: bold;
+    small {
+      color: #FDF5E6;
+    }
+  }
+}
+
+// "<%= asset_path('skyline.jpg')%>"
+
+#admin-footer h2{
+  color: brown;
+}
+
+#artist-grid, #items-grid, #images-grid, #rooms-grid {
+  .thumbnail {
+    display: block;
+    text-align: center;
+    img {
+      max-height: 250px;
+    }
+  }
+  h3 {
+    margin-top: 0px;
+  }
+}
+#artist-grid, #images-grid {
+  .thumbnail {
+    height: 350px
+  }
+}
+#items-grid, #rooms-grid {
+  .thumbnail {
+    height: 400px
+  }
+}

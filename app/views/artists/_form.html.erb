@@ -20,8 +20,6 @@
     <%= f.text_field :page_title %>
   </div>
 
-  <div><%= link_to 'Add new Image', new_image_path %></div>
-
   <div class="field">
     <%= f.label :country_city %><br>
     <%= f.text_field :country_city %>
@@ -49,4 +47,9 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <p>
+    <br>
+  <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
+  <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>
+  </p>
 <% end %>

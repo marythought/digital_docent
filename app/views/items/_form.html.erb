@@ -11,18 +11,18 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :artist %><br>
     <%= f.select :artist_id, options_for_select(@artists.map{ |artist| [artist.name, artist.id]}, :selected => f.object.artist_id ) %>
-  <%= link_to 'Add new Artist', new_artist_path %>
+
+    <%= link_to 'Add new Artist', new_artist_path %>
   </div>
 
   <div class="field">
     <%= f.label :room %><br>
     <%= f.select :room_id, options_for_select(@rooms.map{ |room| [room.name, room.id]}, :selected => f.object.room_id  ) %>
   </div>
-
-  <%= link_to 'Add new Image', new_image_path %>
 
   <div class="field">
     <%= f.label :name %><br>
@@ -87,4 +87,9 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <p>
+    <br>
+  <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
+  <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>
+  </p>
 <% end %>
