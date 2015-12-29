@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DigitalDocent</title>
+  <title>Digital Docent</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/nav' %>
 
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Items", items_path %></li>
-      <li><%= link_to "Artists", artists_path %></li>
-      <li><%= link_to "Rooms", rooms_path %></li>
-    </ul>
-  </nav>
+        <%= yield %>
 
-<%= yield %>
+        <%= render 'layouts/admin' %>
 
+  </div>
 </body>
 </html>

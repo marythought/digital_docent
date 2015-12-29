@@ -1,68 +1,50 @@
-<%- model_class = Item -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:page_title) %></th>
-      <th><%= model_class.human_attribute_name(:work_title) %></th>
-      <th><%= model_class.human_attribute_name(:other_craft) %></th>
-      <th><%= model_class.human_attribute_name(:other_artist) %></th>
-      <th><%= model_class.human_attribute_name(:type_of_item) %></th>
-      <th><%= model_class.human_attribute_name(:material) %></th>
-      <th><%= model_class.human_attribute_name(:technique) %></th>
-      <th><%= model_class.human_attribute_name(:created) %></th>
-      <th><%= model_class.human_attribute_name(:signature) %></th>
-      <th><%= model_class.human_attribute_name(:features) %></th>
-      <th><%= model_class.human_attribute_name(:date_acquired) %></th>
-      <th><%= model_class.human_attribute_name(:gift_of) %></th>
-      <th><%= model_class.human_attribute_name(:text_documents) %></th>
-      <th><%= model_class.human_attribute_name(:featured) %></th>
-      <th><%= model_class.human_attribute_name(:artist_id) %></th>
-      <th><%= model_class.human_attribute_name(:room_id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= link_to item.id, item_path(item) %></td>
-        <td><%= item.page_title %></td>
-        <td><%= item.work_title %></td>
-        <td><%= item.other_craft %></td>
-        <td><%= item.other_artist %></td>
-        <td><%= item.type_of_item %></td>
-        <td><%= item.material %></td>
-        <td><%= item.technique %></td>
-        <td><%= item.created %></td>
-        <td><%= item.signature %></td>
-        <td><%= item.features %></td>
-        <td><%= item.date_acquired %></td>
-        <td><%= item.gift_of %></td>
-        <td><%= item.text_documents %></td>
-        <td><%= item.featured %></td>
-        <td><%= item.artist_id %></td>
-        <td><%= item.room_id %></td>
-        <td><%= item.name %></td>
-        <td><%=l item.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_item_path(item), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      item_path(item),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>
+        Browse By Item
+      </h1>
+      <p id="notice"><%= notice %></p>
+    </div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_item_path,
-            :class => 'btn btn-primary' %>
+  <div class="row">
+    <% @items.each do |item| %>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <% if item.images.length > 0 %>
+          <img alt="<%= item.images.first.file_link %>" src="<%= item.images.first.file_link %>">
+          <div class="caption">
+        <% else %>
+          <img alt="This item needs an image!" src="<%= asset_path('rc-logo.jpg')%>">
+          <div class="caption">
+        <% end %>
+          <h3>
+            <%= item.name %>
+          </h3>
+          <p>
+            by <%= link_to item.artist.name, item.artist %>
+          </p>
+          <p>
+            location: <%= link_to item.room.name, item.room %> (floor <%= item.room.floor.name %>)
+          </p>
+          <% if item.gift_of.present? %>
+            <p>
+              Gift of: <%= item.gift_of %>
+            </p>
+          <% end %>
+          <p>
+            <%= link_to 'Show', item, class:"btn btn-primary" %>
+          </p>
+          <p>
+            <%= link_to 'Edit', edit_item_path(item) %>
+          </p>
+          <p>
+            <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

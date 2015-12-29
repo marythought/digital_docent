@@ -1,11 +1,11 @@
 visit a website on my computer, tablet or phone to read about the art and artifacts in the Rainier Club (“Digital Docent”)
 ROOMS FLOW
 
-click on a room from the rooms index to see a preview of all the items in the room (room show)
-click on an item from a room detail page to see details about that item (item show)
-click on the artist’s name from the item show page to go to artist detail page and see other works by that artist and where they are located (artist show)
 click on a collection name from the item show page if the item is part of a collection (collection show)
+
 view available images and multi-media from any page where they are available (item show, artist show, room show, or collection show)
+
+
 ARTIST FLOW
 click “explore artists” link from homepage to browse artists (artists index)
 click on an artist to see information about the artist, link to items by that artist, floor and rooms where they are located and collections in which they are included (artist show)
@@ -45,13 +45,10 @@ user flow through artist, room, item pages
 add donor recognition
 
 TODOS:
-make index page
-add images
-add media
-add nav bar
 install virtual machine and test rails integration
 add devise
-add some formatting (bootstrap)
 add seeds
+add file uploads (paperclip)
 add tests?
 remove join table, not needed
+add default image if no image.first (for index views) -- done I think

@@ -25,10 +25,12 @@ class MediaController < ApplicationController
   # POST /media.json
   def create
     @medium = Medium.new(medium_params)
+    @resource, id = @medium.global_multimediable.to_s.split('/')[-2..-1]
+    @multimediable = @resource.constantize.find(id)
 
     respond_to do |format|
       if @medium.save
-        format.html { redirect_to @medium, notice: 'Medium was successfully created.' }
+        format.html { redirect_to @multimediable, notice: 'Medium was successfully created.' }
         format.json { render :show, status: :created, location: @medium }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class MediaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medium_params
-      params.require(:medium).permit(:type, :file_link, :multimediable_id, :multimediable_type)
+      params.require(:medium).permit(:type, :file_link, :multimediable_id, :multimediable_type, :global_multimediable)
     end
 end

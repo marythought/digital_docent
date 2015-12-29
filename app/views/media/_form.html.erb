@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
     <%= f.label :file_link %><br>
     <%= f.text_field :file_link %>
   </div>
+
+  <div class=field>
+    <%= f.grouped_collection_select :global_multimediable, [ Item, Artist, Room ], :all, :model_name, :to_global_id, :name %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
