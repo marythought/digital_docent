@@ -1,6 +1,6 @@
 class FloorsController < ApplicationController
   before_action :set_floor, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, except: [:index, :show]
   # GET /floors
   # GET /floors.json
   def index

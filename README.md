@@ -15,13 +15,17 @@
 - add seeds
 - add default image if no image.first (for index views) -- done I think
 
-#### 12/29
+#### 12/29 ~ 8
 - fix images and grid layout (consistency)
 
-Total: ~24
+#### 1/4 ~ 2
+- add devise and admin role
+
+Total: ~34
 
 TODOS:
 * add devise
+* add search
 * deploy
 * add file uploads (paperclip) -- https://github.com/thoughtbot/paperclip
 * install virtual machine and test rails integration
@@ -30,3 +34,4 @@ TODOS:
 * add featured view
 * add newly acquired view
 * add collections
+* add users and ability to create a personal collection and make visible via a dedicated link (maybe)

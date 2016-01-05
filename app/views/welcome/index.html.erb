@@ -1,34 +1,51 @@
-    <div class="jumbotron well">
-      <h2>
-        <span>Welcome to the Digital Docent!</span>
-      </h2>
-      <h2>
-        <small>Digital Docent is an app to showcase your art, collectables, and memorabilia-- by item, by room, by artist, or by collection.</small>
-      </h2>
+<div class="hero-unit">
+</div>
+  <div class="jumbotron well">
+  <h2>
+    <span>Welcome to the Digital Docent!</span>
+  </h2>
+  <h2>
+    <small>Digital Docent is an app to showcase your art, collectables, and memorabilia-- by item, by room, by artist, or by collection.</small>
+  </h2>
+  <p>
+    <a class="btn btn-primary btn-large" href="/items">View Items</a>
+  </p>
+</div>
+
+<div id="browse-previews">
+  <div class="row">
+    <div class="col-md-4">
+      <a href="<%= rooms_path %>""><img alt="Room Image" src="<%= asset_path('room.jpg')%>"></a>
       <p>
-        <a class="btn btn-primary btn-large" href="#">View Featured</a>
+        <%= link_to 'Browse by Rooms >>', rooms_path, class: "btn" %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <a href="<%= items_path %>""><img alt="Item Image" src="<%= asset_path('art.jpg')%>"></a>
+      <p>
+        <%= link_to 'Browse by Items >>', items_path, class: "btn" %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <a href="<%= artists_path %>""><img alt="Artist Image" src="<%= asset_path('artist.jpg')%>"></a>
+      <p>
+        <%= link_to 'Browse by Artists >>', artists_path, class: "btn" %>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img alt="Featured Image" src="<%= asset_path('featured.jpg')%>">
+      <p>
+        <%= link_to 'Featured (Coming Soon) >>', items_path, class: "btn" %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <img alt="Collections Image" src="<%= asset_path('collection.jpg')%>">
+      <p>
+        <%= link_to 'Collections (Coming Soon) >>', items_path, class: "btn" %>
       </p>
     </div>
   </div>
 </div>
-
-<div class="row" id="browse-previews">
-  <div class="col-md-4">
-    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
-    <p>
-      <%= link_to 'Browse by Rooms >>', rooms_path, class: "btn" %>
-    </p>
-  </div>
-  <div class="col-md-4">
-    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
-    <p>
-      <%= link_to 'Browse by Items >>', items_path, class: "btn" %>
-    </p>
-  </div>
-  <div class="col-md-4">
-    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
-    <p>
-      <%= link_to 'Browse by Artists >>', artists_path, class: "btn" %>
-    </p>
-  </div>
 </div>
