@@ -10,9 +10,33 @@ $lime: #c6ea96;
   background-color: lighten($dark, 50%);
 }
 
+* {
+  a:hover {
+    text-decoration: none;
+  }
+}
 // Nav Bar
 nav ul li {
   display: inline;
+}
+
+.navbar {
+  background-color: $dark;
+  border-color: $dark;
+  border-radius: 0;
+  margin-bottom: 0px;
+}
+
+.navbar-default .navbar-brand {
+  color: $lime;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: $offwhite;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: $lime;
 }
 
 // Buttons
