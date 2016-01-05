@@ -6,29 +6,27 @@
 			</h1>
       <p id="notice"><%= notice %></p>
 		</div>
+		<div class="show">
+      <% if @item.images.length > 0 %>
+				<img alt="<%= @item.images.first.file_link %>" src="<%= @item.images.first.file_link %>">
+			<% else %>
+				<img alt="Generic art image" src="<%= asset_path('art.jpg')%>" />
+      <% end %>
 
+	    <% if @item.images.length > 1 %>
+			<div class="row">
+	      <h2>More images:</h2>
 
-			<div class="col-md-6 show">
-        <% if @item.images.length > 0 %>
-  				<img alt="<%= @item.images.first.file_link %>" src="<%= @item.images.first.file_link %>">
-        <% end %>
+	  			<div class="col-md-3">
+	  				<div class="thumbnail">
+	            <% 1.upto(@item.images.length-1) do |i| %>
+	  					  <img alt="<%= item.images[i].file_link%>" src="<%= item.images[i].file_link%>" />
+	            <% end %>
+	  				</div>
+	  			</div>
 			</div>
-
-
-    <% if @item.images.length > 1 %>
-		<div class="row">
-      <h2>More images:</h2>
-
-  			<div class="col-md-3">
-  				<div class="thumbnail">
-            <% 1.upto(@item.images.length-1) do |i| %>
-  					  <img alt="<%= item.images[i].file_link%>" src="<%= item.images[i].file_link%>" />
-            <% end %>
-  				</div>
-  			</div>
+    	<% end %>
 		</div>
-    <% end %>
-
 		<h2>
 			About the item:
 		</h2>
@@ -36,34 +34,13 @@
 			<%= @item.features %>
 		</p>
     <p>
-      <strong>item:</strong>
+      <strong>Artist:</strong>
       <%= link_to @item.artist.name, @item.artist %>
     </p>
 
     <p>
       <strong>Room:</strong>
       <%= link_to @item.room.name, @item.room %>
-    </p>
-
-    <p>
-      <strong>Work title:</strong>
-      <%= @item.work_title %>
-    </p>
-
-    <p>
-      <strong>Name:</strong>
-      <%= @item.name %>
-    </p>
-
-
-    <p>
-      <strong>Other craft:</strong>
-      <%= @item.other_craft %>
-    </p>
-
-    <p>
-      <strong>Other artist:</strong>
-      <%= @item.other_artist %>
     </p>
 
     <p>
@@ -77,16 +54,6 @@
     </p>
 
     <p>
-      <strong>Technique:</strong>
-      <%= @item.technique %>
-    </p>
-
-    <p>
-      <strong>Created:</strong>
-      <%= @item.created %>
-    </p>
-
-    <p>
       <strong>Date acquired:</strong>
       <%= @item.date_acquired %>
     </p>
@@ -94,11 +61,6 @@
     <p>
       <strong>Gift of:</strong>
       <%= @item.gift_of %>
-    </p>
-
-    <p>
-      <strong>Text documents:</strong>
-      <%= @item.text_documents %>
     </p>
 
     <% if @item.media.length > 0 %>
@@ -112,7 +74,7 @@
 	</div>
 </div>
 
-
+<% if @current_admin %>
 <div class="row show-admin-box">
   <div class="col-md-12">
     <h1>ADMIN BOX</h1>
@@ -123,3 +85,4 @@
     <%= link_to 'Back to Items Index', items_path, class: "btn btn-primary" %>
   </div>
 </div>
+<% end %>

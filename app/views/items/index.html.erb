@@ -13,31 +13,30 @@
     <div class="col-md-3">
       <div class="thumbnail">
         <% if item.images.length > 0 %>
-          <img alt="<%= item.images.first.file_link %>" src="<%= item.images.first.file_link %>">
+          <a href="<%= item_path(item) %>"><img alt="<%= item.images.first.file_link %>" src="<%= item.images.first.file_link %>"></a>
           <div class="caption">
         <% else %>
-          <img alt="This item needs an image!" src="<%= asset_path('dicksondiaz.png')%>">
+          <a href="<%= item_path(item) %>"><img alt="This item needs an image!" src="<%= asset_path('art.jpg')%>"></a>
           <div class="caption">
         <% end %>
           <h3>
-            <%= item.name %>
+            <%= link_to item.name, item %>
           </h3>
           <p>
             by <%= link_to item.artist.name, item.artist %>
           </p>
           <p>
-            location: <%= link_to item.room.name, item.room %> (floor <%= item.room.floor.name %>)
+            Location: <%= link_to item.room.name, item.room %> (floor <%= item.room.floor.name %>)
           </p>
           <% if item.gift_of.present? %>
             <p>
               Gift of: <%= item.gift_of %>
             </p>
           <% end %>
-          <p>
-            <%= link_to 'Show', item, class:"btn btn-primary" %>
+          <% if @current_admin %>
             <%= link_to 'Edit', edit_item_path(item) %> |
             <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
+          <% end %>
         </div>
       </div>
     </div>

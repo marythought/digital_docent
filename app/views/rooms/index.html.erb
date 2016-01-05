@@ -13,21 +13,22 @@
     <div class="col-md-3">
       <div class="thumbnail">
         <% if room.images.length > 0 %>
-          <img alt="<%= room.images.first.file_link%>" src="<%=room.images.first.file_link%>">
+          <a href="<%= room_path(room) %>"><img alt="<%= room.images.first.file_link%>" src="<%=room.images.first.file_link%>"></a>
         <% else %>
-          <img alt="This room needs an image!" src="<%= asset_path('dicksondiaz.png')%>">
+          <a href="<%= room_path(room) %>"><img alt="This room needs an image!" src="<%= asset_path('dicksondiaz.png')%>">
         <% end %>
         <div class="caption">
           <h3>
-            <%= room.name %>
+            <%= link_to room.name, room %>
           </h3>
           <p>
             located on floor <%= room.floor.name %>
           </p>
           <p>
-            <%= link_to 'Show', room, class:"btn btn-primary" %>
+            <% if current_admin %>
             <%= link_to 'Edit', edit_room_path(room) %> |
             <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           </p>
         </div>
       </div>

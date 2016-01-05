@@ -19,8 +19,10 @@
           </h3>
           <p>
             <%= link_to 'Show', image.imageable, class:"btn btn-primary" %>
+            <% if current_admin %>
             <%= link_to 'Edit', edit_image_path(image) %>
             <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           </p>
         </div>
       </div>

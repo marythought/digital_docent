@@ -19,12 +19,14 @@
           <p>
             <%= link_to 'Show', floor, class:"btn btn-primary" %>
           </p>
+          <% if @current_admin %>
           <p>
             <%= link_to 'Edit', edit_floor_path(floor) %>
           </p>
           <p>
             <%= link_to 'Destroy', floor, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
+          <% end %>
         </div>
       </div>
     </div>
