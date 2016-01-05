@@ -19,17 +19,21 @@
 - fix images and grid layout (consistency)
 
 #### 1/4 ~ 2
-- add devise and admin role
+- add devise for admin
+- hide CRUD for non-admin
+- fix colors and styling
+- deploy!
 
 Total: ~34
 
 TODOS:
-* add devise
-* add search
-* deploy
-* add file uploads (paperclip) -- https://github.com/thoughtbot/paperclip
+* deploy!
+* clean up model fields, remove unneeded or duplicate
+* make "media" instructions more clear (only works for embedded video)
+* add search functionality
+* add file uploads (paperclip) instead of file links -- https://github.com/thoughtbot/paperclip
 * install virtual machine and test rails integration
-* add tests?
+* add tests
 * remove join table, not needed
 * add featured view
 * add newly acquired view
