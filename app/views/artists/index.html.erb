@@ -13,18 +13,20 @@
     <div class="col-md-3">
       <div class="thumbnail">
         <% if artist.images.length > 0 %>
-          <img alt="<%= artist.images.first.file_link%>" src="<%=artist.images.first.file_link%>">
+          <a href="<%= artist_path(artist) %>"><img alt="<%= artist.images.first.file_link%>" src="<%=artist.images.first.file_link%>"></a>
         <% else %>
-          <img alt="This item needs an image!" src="<%= asset_path('dicksondiaz.png') %>">
+          <a href="<%= artist_path(artist) %>"><img alt="This item needs an image!" src="<%= asset_path('artist.jpg') %>"></a>
         <% end %>
 
           <h3>
-            <%= artist.name %>
+            <br>
+            <%= link_to artist.name, artist %>
           </h3>
           <p>
-            <%= link_to 'View Artist', artist, class:"btn btn-primary" %>
+            <% if current_admin %>
             <%= link_to 'Edit', edit_artist_path(artist) %> |
             <%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           </p>
 
       </div>

@@ -20,12 +20,14 @@
           <p>
             <%= link_to 'Show', medium.multimediable, class:"btn btn-primary" %>
           </p>
+          <% if @current_admin %>
           <p>
             <%= link_to 'Edit', edit_medium_path(medium) %>
           </p>
           <p>
             <%= link_to 'Destroy', medium, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
+          <% end %>
         </div>
       </div>
     </div>
