@@ -20,7 +20,7 @@
 	  			<div class="col-md-3">
 	  				<div class="thumbnail">
 	            <% 1.upto(@item.images.length-1) do |i| %>
-	  					  <img alt="<%= item.images[i].file_link%>" src="<%= item.images[i].file_link%>" />
+	  					  <img alt="<%= @item.images[i].file_link%>" src="<%= @item.images[i].file_link%>" />
 	            <% end %>
 	  				</div>
 	  			</div>
@@ -74,7 +74,7 @@
 	</div>
 </div>
 
-<% if @current_admin %>
+<% if current_admin %>
 <div class="row show-admin-box">
   <div class="col-md-12">
     <h1>ADMIN BOX</h1>
