@@ -5,38 +5,17 @@
 				<%= @item.work_title %>
 			</h1>
       <p id="notice"><%= notice %></p>
-      <ul class="nav nav-pills">
-        <li>
-          <a href="#">Details</a>
-        </li>
-        <li>
-          <a href="#">Artist/Room Info</a>
-        </li>
-        <li>
-          <a href="#">Media</a>
-        </li>
-      </ul>
 		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<h2>
-					<%= @item.name %>
-				</h2>
-				<p>
-					<%= @item.features %>
-				</p>
-				<p>
-					<a class="btn" href="#">View details »</a>
-				</p>
-			</div>
-			<div class="col-md-6">
+
+
+			<div class="col-md-6 show">
         <% if @item.images.length > 0 %>
   				<img alt="<%= @item.images.first.file_link %>" src="<%= @item.images.first.file_link %>">
         <% end %>
 			</div>
-		</div>
 
-    <% if item.images.length > 1 %>
+
+    <% if @item.images.length > 1 %>
 		<div class="row">
       <h2>More images:</h2>
 
@@ -53,6 +32,9 @@
 		<h2>
 			About the item:
 		</h2>
+		<p>
+			<%= @item.features %>
+		</p>
     <p>
       <strong>item:</strong>
       <%= link_to @item.artist.name, @item.artist %>
@@ -105,16 +87,6 @@
     </p>
 
     <p>
-      <strong>Signature:</strong>
-      <%= @item.signature %>
-    </p>
-
-    <p>
-      <strong>Features:</strong>
-      <%= @item.features %>
-    </p>
-
-    <p>
       <strong>Date acquired:</strong>
       <%= @item.date_acquired %>
     </p>
@@ -129,11 +101,6 @@
       <%= @item.text_documents %>
     </p>
 
-    <p>
-      <strong>Featured:</strong>
-      <%= @item.featured %>
-    </p>
-
     <% if @item.media.length > 0 %>
       <strong>Media about this item:</strong>
       <% @item.media.each do |medium| %>
@@ -146,8 +113,8 @@
 </div>
 
 
-<div class="row">
-  <div class="col-md-4">
+<div class="row show-admin-box">
+  <div class="col-md-12">
     <h1>ADMIN BOX</h1>
     <%= link_to 'Add new Image', new_image_path, class: "btn btn-primary" %>
     <%= link_to 'Add new Media', new_medium_path, class: "btn btn-primary" %>

@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
   validates :file_link, presence: true
 
   def global_imageable
-    self.imageable.to_global_id if self.imageable.present?
+    imageable.to_global_id if imageable.present?
   end
 
   def global_imageable=(imageable)

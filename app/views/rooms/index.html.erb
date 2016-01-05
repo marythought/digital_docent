@@ -7,15 +7,15 @@
       <p id="notice"><%= notice %></p>
     </div>
 
-  <div class="row">
+  <div class="row", id="rooms-grid">
     <% @rooms.each do |room| %>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="thumbnail">
         <% if room.images.length > 0 %>
           <img alt="<%= room.images.first.file_link%>" src="<%=room.images.first.file_link%>">
         <% else %>
-          <img alt="This room needs an image!" src="<%= asset_path('rc-logo.jpg')%>">
+          <img alt="This room needs an image!" src="<%= asset_path('dicksondiaz.png')%>">
         <% end %>
         <div class="caption">
           <h3>
@@ -26,11 +26,7 @@
           </p>
           <p>
             <%= link_to 'Show', room, class:"btn btn-primary" %>
-          </p>
-          <p>
-            <%= link_to 'Edit', edit_room_path(room) %>
-          </p>
-          <p>
+            <%= link_to 'Edit', edit_room_path(room) %> |
             <%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %>
           </p>
         </div>

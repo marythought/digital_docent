@@ -5,5 +5,11 @@
   <%= @floor.name %>
 </p>
 
-<%= link_to 'Edit', edit_floor_path(@floor) %> |
-<%= link_to 'Back', floors_path %>
+<div class="row show-admin-box">
+  <div class="col-md-12">
+    <h1>ADMIN BOX</h1>
+    <%= link_to 'Edit Floor', edit_floor_path(@floor), class: "btn btn-primary" %>
+    <%= link_to 'Destroy Floor', @floor, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Back to Floor Index', floors_path, class: "btn btn-primary" %>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+// Page colors
+
+$mushroom: #787B91;
+$dark: #223843;
+$tomato: #d66548;
+$offwhite: #f4ebf2;
+$lime: #c6ea96;
+
+.container-fluid {
+  background-color: lighten($dark, 50%);
+}
+
+// Nav Bar
+nav ul li {
+  display: inline;
+}
+
+// Buttons
+.btn-primary {
+  background-color: $tomato;
+  border-color: darken($tomato, 20%);
+}
+
+.btn-primary:hover {
+  background-color: $lime;
+  border-color: darken($lime, 10%);
+}
+
+// Main Landing Page
+
+#browse-previews {
+  img {
+    max-width: 300px;
+  }
+  a {
+    color: $dark;
+  }
+  a:hover {
+    color: $lime;
+  }
+}
+
+.hero-unit {
+  background-image: url(image_path('museum.jpg'));
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+}
+
+.jumbotron {
+  background-position: center;
+  background-size: cover;
+  background-color: $dark;
+  border-color: darken($dark, 10%);
+  h2 {
+    color: lighten($mushroom, 30%);
+    font-weight: bold;
+    small {
+      color: $offwhite;
+    }
+  }
+}
+
+// Footer
+
+#admin-footer {
+  h2 {
+    color: $tomato;
+  }
+}
+
+.footer {
+  background-color: $dark;
+  border-color: darken($dark, 10%);
+  p {
+    color: $offwhite;
+  }
+  a {
+    color: $lime;
+  }
+}
+
+// Model Index Pages
+
+#artist-grid, #items-grid, #images-grid, #rooms-grid {
+  .thumbnail {
+    display: block;
+    text-align: center;
+    img {
+      max-height: 250px;
+    }
+  }
+  h3 {
+    margin-top: 0px;
+  }
+}
+
+#artist-grid, #images-grid {
+  .thumbnail {
+    height: 350px
+  }
+}
+
+#items-grid, #rooms-grid {
+  .thumbnail {
+    height: 400px
+  }
+}
+
+// Model Show Pages
+
+div.show img {
+  max-width: 100%;
+}
+
+.show-admin-box {
+  background-color: $mushroom;
+  color: white;
+  border-style: dashed 1px;
+  border-color: red;
+}
